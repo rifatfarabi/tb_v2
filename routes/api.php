@@ -25,7 +25,7 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class,'login']);
 Route::post('logout',[ AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::apiResource('/produts', ProductController::class);
+Route::apiResource('/products', ProductController::class);
 
 // Route::group(['prefix'=> 'produts'], function(){
 //     Route::apiResource('/{product}/reviews', ReviewController::class);
