@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
@@ -31,6 +32,9 @@ Route::controller(AuthController::class)->group(function(){
 Route::post('logout',[ AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 Route::apiResource('/products', ProductController::class);
+Route::get('cart/list',[CartController::class, 'cartList'])->name('cart.list');
+Route::post('add/cart/{id}',[CartController::class, 'addTocart'])->name('add.cart');
+Route::get('remove/cart',[CartController::class, 'removeTocart'])->name('remove.cart');
 
 // Route::group(['prefix'=> 'produts'], function(){
 //     Route::apiResource('/{product}/reviews', ReviewController::class);
